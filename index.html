@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Sivert sin bursdagsnettside!</title>
+    <style>
+        .box {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <div class="boks"><a href="bursdag.html">💙</div>
+        <div id="boks"></div>
+        <div class="boks"><a href="countdown.html">COUNTDOWN</a></div>
+        <div class="boks"><a href="location.html">LOCATION</a></div>
+        <div class="boks"><a href="funfacts.html">KORT</a></div>
+        <div class="boks"><a href="yourgift.html">YOUR GIFT</a></div>
+        
+    </div>
+
+    <h1 style="text-align: center;">Gratulerer med dagen!</h1>
+
+<br>
+
+   <script>
+        let bilder = [
+            { src: "bergen.jpeg", alt: "1" },
+            { src: "usa.jpeg", alt: "2" },
+            { src: "ute.jpeg", alt: "3" },
+            { src: "bunad.jpeg", alt: "4" },
+            { src: "drikke.jpeg", alt: "5" },
+            { src: "hengekøye.jpeg", alt: "6" },
+            { src: "lue.jpeg", alt: "7" },
+            { src: "speil.jpeg", alt: "8" }
+        ];
+        
+        let index = 0;
+
+        function neste() {
+            index += 1;
+            if (index == bilder.length) {
+                index = 0;
+            }
+            oppdaterBilde();
+        }
+
+        function forrige() {
+            index -= 1;
+            if (index < 0) {
+                index = bilder.length - 1;
+            }
+            oppdaterBilde();
+        }
+
+        function oppdaterBilde() {
+            document.querySelector('img').src = bilder[index].src;
+            document.querySelector('p').textContent = bilder[index].alt;
+        }
+
+        // Sett startverdier
+        document.addEventListener('DOMContentLoaded', () => {
+            oppdaterBilde();
+        });
+    </script>
+
+    <div style="text-align: center;">
+        <button onclick="forrige()">Forrige</button>
+        <button onclick="neste()">Neste</button>
+    </div>
+
+    <div class="box">
+        <img src="" alt="" width="500px">
+    </div>
+
+    <p style="text-align:center;"></p>
+
+<br>
+<br>
+<br>
+</body>
+</html>

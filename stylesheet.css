@@ -1,0 +1,37 @@
+h1 {color: darkblue; text-align: center;}
+h2 {color: lavender; text-align: center;}
+p {text-align: center;}
+body {background-color: rgb(77, 159, 211);}
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    color: white;
+}
+.boks {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.boks li {
+    display: inline;
+}
+
+.boks a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+/* Hover-effekt */
+.boks a:hover {
+    background: #555;
+    border-radius: 5px;
+}
