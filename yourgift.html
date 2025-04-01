@@ -2,42 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your gift</title>
+    <title>Your Gift</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .image-container img {
+            width: 400px;
+            height: auto;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .reveal-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .reveal-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .ticket-container {
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.5) rotateY(90deg);
+            transition: opacity 1s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        .ticket {
+            display: inline-block;
+            padding: 20px;
+            background: linear-gradient(45deg, gold, orange);
+            border-radius: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            border: 2px dashed brown;
+            position: relative;
+        }
+
+        .ticket::before, .ticket::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .ticket::before {
+            top: -10px;
+            left: -10px;
+        }
+        
+        .ticket::after {
+            bottom: -10px;
+            right: -10px;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
-        <div class="boks"><a href="index.html">💙</div>
+        <div class="boks"><a href="index.html">💙</a></div>
         <div id="boks"></div>
         <div class="boks"><a href="countdown.html">COUNTDOWN</a></div>
         <div class="boks"><a href="location.html">LOCATION</a></div>
         <div class="boks"><a href="funfacts.html">KORT</a></div>
-        <div class="boks"><a href="yourgift.html">YOUR GIFT</a></div>
+        <div class="boks"><a href="yourgift.html">YOUR GIFT</a></div>
     </div>
-        <br>
-        <br>
-        <br>
-        <h1>Your gift</h1>
-        <p>Dette er en sneakpeak på gavene dine!</p>
-        <div class="image-container">
-            <img src="sneak.png" alt="Bilde 1">
-            <img src="lego.png" alt="Bilde 2">
-        </div>
-        
-        <style>
-            .image-container {
-                display: flex;
-                justify-content: center; 
-                gap: 20px; 
-            }
-        
-            .image-container img {
-                width: 400px;
-                height: auto;
-            }
-        </style>
 
+    <br><br><br>
+    <h1>Your Gift</h1>
+    <p>Dette er en sneakpeak på gavene dine!</p>
+    
+    <button class="reveal-btn" onclick="revealGift()">Åpne pakken 🎁</button>
+    
+    <div class="image-container hidden" id="giftContainer">
+        <img src="sneak.png" alt="Bilde 1">
+    </div>
+    
+    <div class="ticket-container hidden" id="ticketContainer">
+        <div class="ticket">🎟️ Gratulerer! Du har fått en eksklusiv kinobillett! 🍿✨ Til Attack on Titan!!!!!!! 
+            <p style="font-size: xx-small;">(helst ikke den filmen, men det er din bursdag!)</p></div>
+    </div>
+
+    <script>
+        function revealGift() {
+            document.getElementById("giftContainer").classList.remove("hidden");
+            document.getElementById("giftContainer").style.opacity = "1";
+            
+            setTimeout(() => {
+                let ticket = document.getElementById("ticketContainer");
+                ticket.classList.remove("hidden");
+                ticket.style.opacity = "1";
+                ticket.style.transform = "scale(1) rotateY(0deg)";
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
+
